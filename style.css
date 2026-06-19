@@ -282,7 +282,7 @@ nav ul li a:hover::after { width: 100%; }
 
 .hero-img-wrap {
   width: 100%;
-  max-width: 480px; 
+  max-width: 480px;  
   aspect-ratio: 1 / 1; 
   border-radius: 20px;
   border: 2px solid rgba(255,255,255,0.1);
@@ -304,12 +304,12 @@ nav ul li a:hover::after { width: 100%; }
   object-fit: cover;   
 }
 
-/* 데스크탑 기본 스티커 레이아웃 */
+/* 데스크탑 스티커 기본 레이아웃 */
 .sticker {
   position: absolute;
-  top: -15px; right: -15px;
-  z-index: 99; 
-  width: 85px; height: 85px;
+  top: -10px; right: 10px;
+  z-index: 99; /* 다른 비주얼 요소를 덮을 수 있게 레이어 우선순위 강화 */
+  width: 80px; height: 80px;
   border-radius: 50%;
   background: var(--red);
   color: var(--white);
@@ -390,7 +390,7 @@ nav ul li a:hover::after { width: 100%; }
   z-index: 0;
 }
 
-/* 데스크탑: 텍스트 레이아웃과 1:1로 늘어나는 반응형 구조 */
+/* 텍스트 박스 높이와 1:1 대응하도록 height: 100%, aspect-ratio 제거 */
 .story-img-box {
   position: relative; z-index: 1;
   width: 100%;
@@ -799,7 +799,7 @@ footer {
 
 
 /* ============================================================
-   16. 반응형 미디어 쿼리 (모바일 컴팩트 패치)
+   16. 반응형 미디어 쿼리 (모바일 컴팩트 완벽 보정구역)
    ============================================================ */
 
 /* --- 태블릿 / 소형 노트북 (992px 이하) --- */
@@ -812,7 +812,7 @@ footer {
     background: #FEF3E2;
     padding: 20px 24px;
     border-top: 1px solid var(--sand);
-    box-shadow: 0 8px 24 rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     z-index: 998;
     flex-direction: column;
     gap: 0;
@@ -821,7 +821,6 @@ footer {
   .hamburger { display: flex; }
   .nav-cta   { display: none; }
 
-  /* 부모 기준점 absolute 정합성 유지를 위해 포지션 relative 선언 */
   .hero-visual {
     position: relative;
     width: 100%;
@@ -834,7 +833,6 @@ footer {
     gap: 30px;
   }
   .hero-text p { margin-left: auto; margin-right: auto; }
-  .hero-text h1 { margin-bottom: 24px; }
   .hero-btns   { justify-content: center; }
   .hero-img-wrap { max-width: 340px; }
 
@@ -854,35 +852,38 @@ footer {
 @media (max-width: 576px) {
   .section { padding: 50px 0; }
   
+  /* 메인 비주얼 박스 정렬 기준 재선언 */
   .hero-visual {
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    max-width: 290px;
+    margin: 20px auto 0; /* 중앙 정렬 고정 */
   }
 
+  /* 슬라이더 트랙 상위 래퍼 */
   .hero-img-wrap { 
-    max-width: 290px; 
-    margin: 0 auto;
+    max-width: 100%; 
+    width: 100%;
   }
   
-  /* [교정 1] 모바일 화면 슬라이더의 정확한 우측 상단 모서리에 뱃지 고정 흡착 */
+  /* [교정 1] .hero-img-wrap 우측 상단 모서리에 스티커 정확하게 결합 */
   .sticker { 
     width: 74px; 
     height: 74px; 
     font-size: 0.68rem; 
-    top: -12px;
-    bottom: auto; 
-    right: calc(50% - 145px); /* 290px 슬라이더 절반 너비 기준 우측 정렬 전용 보정식 */
+    top: -10px;
+    right: -10px; /* 상대 수식 대신 부모 우측 상단 기준점으로 고정 */
+    bottom: auto;
+    left: auto;
     z-index: 100;
   }
 
   .stat-item { flex: 1 1 100%; margin-bottom: 12px; } 
   
-  /* [교정 2] 1열 세로 늘어남 버그 초기화 및 스토리 텍스트 박스와 동일 크기(100%) 매칭 */
+  /* [교정 2] 스토리 이미지 박스를 아래의 텍스트 영역 가로폭(100%)과 완전 매칭 */
   .story-inner {
-    align-items: center; /* stretch 강제 해제 및 중앙 맞춤 */
     grid-template-columns: 1fr;
+    align-items: flex-start; /* 모바일 세로 매칭 초기화 */
   }
   
   .story-img {
@@ -890,27 +891,4 @@ footer {
     max-width: 100%;
   }
 
-  .story-img-box {
-    width: 100%;
-    height: auto;
-    aspect-ratio: auto; /* 고정 비율 해제하여 자식 이미지 원본 비율 보존 */
-  }
-
-  .story-img-box img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .story-quote { position: relative; bottom: 0; right: 0; width: 100%; max-width: 100%; margin-top: 16px; }
-  
-  .timeline { grid-template-columns: 1fr; }
-  .step-num { width: 120px; height: 120px; }
-
-  .products-grid { grid-template-columns: 1fr; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .shipping-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-  
-  .footer-bottom { flex-direction: column; text-align: center; gap: 14px; }
-}
+  /* 강제 비율을 해제하고 하단 텍스트와 가로 크기가 일치되도록 수정
