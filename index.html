@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>돌산수연갓김치 — 여수 돌산도의 자연을 담다</title>
+
+  <!-- ============================================================
+       Google Fonts 불러오기
+       - Noto Serif KR : 제목·브랜드 텍스트용 세리프체
+       - Noto Sans KR  : 본문·UI용 산세리프체
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;900&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- ============================================================
+       외부 CSS 파일 연결 (style.css)
+       — 모든 스타일은 style.css에서 관리
+       ============================================================ -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER — 고정 상단 내비게이션 바
+       - position: fixed 로 스크롤해도 항상 상단에 고정
+       - JS(main.js)에서 스크롤 시 배경 강화 처리
+       ============================================================ -->
+  <header>
+    <div class="logo">
+      <img src="imgs/로고005.png" alt="로고">
+    </div>
+
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#story">브랜드 스토리</a></li>
+        <li><a href="#products">제품</a></li>
+        <li><a href="#process">제조 과정</a></li>
+        <li><a href="#reviews">후기</a></li>
+        <li><a href="#shipping">구매 안내</a></li>
+      </ul>
+    </nav>
+
+    <a href="http://www.suyeonkimchi.com/mall/index.php" target="_blank"
+      class="btn btn-red nav-cta">지금 구매하기</a>
+
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION — 메인 첫 인상 비주얼 구역
+       - 슬라이더 트랙을 활용하여 상품 이미지 자동/수동 전환
+       - 국내산 100% 강조 스티커 배치
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-text">
+        <span class="badge">🌿 여수 돌산도 산지직송</span>
+        <h1 style="font-family: 'GyeonggiBatang', serif; ">여수 돌산의 바람이 키운 <br /><em>돌산 갓김치</em><br />그 깊은 맛</h1>
+
+        <div class="hero-btns">
+          <a href="http://www.suyeonkimchi.com/mall/index.php" target="_blank" class="btn btn-red">지금 구매하기</a>
+          <a href="#story" class="btn btn-outline"
+            style="border-color:rgba(255,255,255,0.5); color:rgba(255,255,255,0.8);">브랜드 스토리</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+
+          <div class="slider-track" id="hero-slider-track">
+            <img src="imgs/1110.jpg" alt="돌산갓김치 상품 1" class="slider-img">
+            <img src="imgs/2222.jpg" alt="돌산갓김치 상품 2" class="slider-img">
+            <img src="imgs/5555.jpg" alt="돌산갓김치 상품 3" class="slider-img">
+            <img src="imgs/1110.jpg" alt="돌산갓김치 상품 1 복사본" class="slider-img">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sticker">국내산<br />100%<br />🌿</div>
+
+    </div>
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BRAND STRIP — 브랜드 주요 핵심 수치 및 특징 요약 바
+       - 20년 전통, 100% 국내산 등 핵심 셀링 포인트 배치
+       ============================================================ -->
+  <div class="brand-strip">
+    <div class="container brand-strip-inner">
+      <div class="stat-item">
+        <span class="num">20+</span>
+        <span class="label">년 전통의 맛</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">100%</span>
+        <span class="label">국내산 재료</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">산지직송</span>
+        <span class="label">돌산도 직접 배송</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">무첨가</span>
+        <span class="label">화학조미료 無</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       STORY SECTION — 여수 돌산도 생산 배경 및 스토리 구역
+       - 어두운 배경 그라데이션 및 자연 이미지 적용
+       - 아이콘 리스트를 활용한 4대 핵심 특장점 나열
+       ============================================================ -->
+  <section class="section story" id="story" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imgs/3333.png'); 
+        background-size: cover; background-position: center;
+        background-size: 100% 100%" ;>
+    <div class="container story-inner">
+
+      <div class="story-img fade-up">
+        <div class="story-img-box">
+          <img src="imgs/캡처2222.jpg" alt="돌산도 갓 농장" />
+        </div>
+
+        <div class="story-quote">
+          <p>"여수 돌산 갓은 <br />따뜻한 해풍과 황토에서 자라 섬유질이 부드럽고 <br />특유의 알싸한 맛이 뛰어납니다."</p>
+        </div>
+      </div>
+
+      <div class="story-text fade-up delay-2">
+        <div class="divider"><span></span>
+          <p>Our Story</p>
+        </div>
+
+        <h2 class="section-title" style="color: #ffffff; font-family: 'GyeonggiBatang', serif; ">여수 돌산도에서<br />20년 넘게
+          이어온<br />한 맛의 약속</h2>
+
+        <p class="section-desc" style="color: #fbf0e6;">
+          전라남도 여수시 돌산도의 해풍을 맞고 자란 갓은 다른 지역 갓과는
+          향과 질감이 전혀 다릅니다. 수연갓김치는 이 귀한 돌산갓을
+          20년 넘는 경험으로 담가, 그 진한 풍미를 고객님 식탁까지 그대로 전해드립니다.
+        </p>
+
+        <ul class="story-features" style="color: #fbf0e6;">
+          <li>
+            <span class="icon">🌊</span>
+            <span>돌산도 해풍과 염분이 만들어낸 독특한 갓 향미</span>
+          </li>
+          <li>
+            <span class="icon">🧂</span>
+            <span>천일염만 사용, 화학 첨가물 전혀 없음</span>
+          </li>
+          <li>
+            <span class="icon">❄️</span>
+            <span>저온 숙성으로 유산균 풍부하게 보존</span>
+          </li>
+          <li>
+            <span class="icon">📦</span>
+            <span>주문 즉시 담가 산지직송, 최상의 신선도 보장</span>
+          </li>
+        </ul>
+
+        <div style="margin-top: 36px;">
+          <a href="#products" class="btn btn-red">제품 보러가기</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PRODUCTS SECTION — 수연갓김치 대표 상품 카드 그리드
+       - 기본형 1kg, 선물세트, 매운맛 3가지 메인 라인업 구성
+       - 각 카드 내 마우스 호버 시 '상세 보기' 오버레이 작동
+       ============================================================ -->
+  <section class="section products" id="products">
+    <div class="container">
+
+      <div class="fade-up">
+        <div class="divider"><span></span>
+          <p>Product Line</p>
+        </div>
+        <h2 class="section-title">돌산수연갓김치<br />대표 제품</h2>
+      </div>
+
+      <div class="products-grid">
+
+        <div class="product-card fade-up delay-1">
+          <div class="product-img">
+            <img src="imgs/550.jpg" alt="상품 1 이미지">
+            <div class="overlay">
+              <span class="overlay-btn">상세 보기</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <p class="product-tag">BEST SELLER</p>
+            <p class="product-name">돌산 갓김치 1kg</p>
+            <p class="product-desc">전통 방식 그대로 담근 기본에 충실한 갓김치. 밥 한 공기가 모자랄 맛.</p>
+            <p class="product-price">18,000원 <span>22,000원</span></p>
+          </div>
+        </div>
+
+        <div class="product-card fade-up delay-2">
+          <div class="product-img">
+            <img src="imgs/3종세트.jpg" alt="상품 2 이미지">
+            <div class="overlay">
+              <span class="overlay-btn">상세 보기</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <p class="product-tag">선물 추천</p>
+            <p class="product-name">갓김치 선물세트 3종</p>
+            <p class="product-desc">갓김치 1kg + 열무김치 500g + 파김치 500g 구성. 정성스러운 포장.</p>
+            <p class="product-price">52,000원 <span>62,000원</span></p>
+          </div>
+        </div>
+
+        <div class="product-card fade-up delay-3">
+          <div class="product-img">
+            <img src="imgs/550.jpg" alt="상품 3 이미지">
+            <div class="overlay">
+              <span class="overlay-btn">상세 보기</span>
+            </div>
+            <div class="spicy-badge">🌶️</div>
+          </div>
+          <div class="product-info">
+            <p class="product-tag">SPICY</p>
+            <p class="product-name"><span style="color: #c0392b; font-weight: bold;">매운</span> 갓김치 1kg</p>
+            <p class="product-desc">매운맛 좋아하는 분을 위한 특별한 레시피. 청양고추를 추가해 더 화끈하게.</p>
+            <p class="product-price">19,000원</p>
+          </div>
+        </div>
+
+      </div>
+      
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="http://www.suyeonkimchi.com/mall/index.php" target="_blank" class="btn btn-outline">전체 상품 보기</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROCESS SECTION — 4단계 김치 제조 과정 (타임라인)
+       — 수확부터 절임, 버무리기, 숙성까지의 원스톱 공정 명시
+       - 원형 썸네일 이미지 구조 활용
+       ============================================================ -->
+  <section class="section process" id="process">
+    <div class="container">
+
+      <div class="process-header fade-up">
+        <div class="divider" style="justify-content: center;">
+          <span></span>
+          <p>How We Make It</p><span></span>
+        </div>
+        <h2 class="section-title" style="text-align: center;">정직한 손맛,<br />4단계 전통 방식</h2>
+        <p class="section-desc">화학조미료 없이, 제철 재료만으로. 수연갓김치의 맛 비결을 공개합니다.</p>
+      </div>
+
+      <div class="timeline" style="margin-bottom: 40px;">
+
+        <div class="timeline-step fade-up delay-1">
+          <div class="step-num circle-box img">
+            <img src="imgs/전동4단계 수확.jpg" alt="채소">
+          </div>
+          <p class="step-label">Step 01</p>
+          <h3 class="step-title">갓 수확</h3>
+          <p class="step-desc">돌산도에서 직접 재배·수확한 최상급 갓만 엄선합니다.</p>
+        </div>
+
+        <div class="timeline-step fade-up delay-2">
+          <div class="step-num circle-box img">
+            <img src="imgs/천일염.jpg" alt="채소">
+          </div>
+          <p class="step-label">Step 02</p>
+          <h3 class="step-title">천일염 절임</h3>
+          <p class="step-desc">신안 천일염으로 알맞게 절여 세포막을 살리고 아삭함을 유지합니다.</p>
+        </div>
+
+        <div class="timeline-step fade-up delay-3">
+          <div class="step-num circle-box img">
+            <img src="imgs/4단계 양념버무리기.jpg" alt="채소">
+          </div>
+          <p class="step-label">Step 03</p>
+          <h3 class="step-title">양념 버무리기</h3>
+          <p class="step-desc">국내산 고춧가루, 마늘, 생강으로 손수 버무려 깊은 맛을 냅니다.</p>
+        </div>
+
+        <div class="timeline-step fade-up delay-4">
+          <div class="step-num circle-box img">
+            <img src="imgs/저온숙성.jpg" alt="채소">
+          </div>
+          <p class="step-label">Step 04</p>
+          <h3 class="step-title">저온 숙성·배송</h3>
+          <p class="step-desc">저온에서 천천히 숙성시켜 유산균을 최대한 살려 바로 배송합니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       REVIEWS SECTION — 고객 리얼 구매 후기 구역
+       - 신뢰도를 높이기 위한 실제 구매 날짜 및 평점 별점 표시
+       - 3열 리뷰 카드 배치 형태
+       ============================================================ -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+
+      <div class="fade-up">
+        <div class="divider"><span></span>
+          <p>Customer Reviews</p>
+        </div>
+        <h2 class="section-title">고객님들의<br />솔직한 후기</h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card fade-up delay-1">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            "갓 특유의 알싸한 향이 살아 있으면서도 짜지 않아서 너무 좋아요.
+            밥이랑 같이 먹으면 한 그릇 뚝딱입니다. 다음에는 선물세트도 주문해볼 생각이에요."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">김</div>
+            <div class="author-info">
+              <p class="name">김○○ 님</p>
+              <p class="date">2025년 3월 구매</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up delay-2">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            "부모님께 선물했는데 '이 집 갓김치가 제일 맛있다'고 하셨어요.
+            포장도 깔끔하고 배송도 빨리 왔습니다. 이제 고향 맛 여기서 해결합니다!"
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">박</div>
+            <div class="author-info">
+              <p class="name">박○○ 님</p>
+              <p class="date">2025년 2월 구매</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up delay-3">
+          <div class="stars">★★★★☆</div>
+          <p class="review-text">
+            "여수 갓김치는 역시 다르더라고요. 아삭하고 향이 살아있어서 자꾸 손이 가네요.
+            조금 더 매운 버전도 있으면 좋겠어요."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">이</div>
+            <div class="author-info">
+              <p class="name">이○○ 님</p>
+              <p class="date">2025년 1월 구매</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SHIPPING SECTION — 배송 및 보관, CS 정책 안내 구역
+       - 배송 마감 시간(오전 11시), 안심 신선 포장 방식 명시
+       - 신선 식품 특성에 따른 교환/환불 기준 안내
+       ============================================================ -->
+  <section class="section shipping" id="shipping">
+    <div class="container">
+
+      <div class="fade-up" style="text-align: center;">
+        <div class="divider" style="justify-content: center;">
+          <span></span>
+          <p>Order & Delivery</p><span></span>
+        </div>
+        <h2 class="section-title">구매 안내</h2>
+      </div>
+
+      <div class="shipping-grid">
+
+        <div class="info-card fade-up delay-1">
+          <div class="info-icon">🚚</div>
+          <h3 class="info-title">빠른 산지직송</h3>
+          <p class="info-desc">
+            주문 확인 후 당일 또는 익일 여수 돌산도에서 직접 발송합니다.
+            오전 11시 이전 주문 시 당일 출고 가능합니다.
+          </p>
+        </div>
+
+        <div class="info-card fade-up delay-2">
+          <div class="info-icon">📦</div>
+          <h3 class="info-title">안전한 포장</h3>
+          <p class="info-desc">
+            여름철에도 안심할 수 있도록 아이스팩과 스티로폼 박스로 포장합니다.
+            김치 냄새 차단 특수 비닐 사용.
+          </p>
+        </div>
+
+        <div class="info-card fade-up delay-3">
+          <div class="info-icon">🔄</div>
+          <h3 class="info-title">교환·환불 안내</h3>
+          <p class="info-desc">
+            상품 수령 후 3일 이내 제품 불량 시 100% 교환·환불 가능합니다.
+            (단, 단순 변심은 개봉 전 상품만 가능)
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA BANNER — 최종 구매 유도 배너 구역
+       - 공식 쇼핑몰과 네이버 스마트스토어 멀티 채널 이동 버튼 배치
+       ============================================================ -->
+  <section class="cta-banner">
+    <h2>지금 바로<br />돌산의 맛을 경험하세요</h2>
+    <p>신선한 재료, 전통의 손맛, 정직한 포장.<br />수연갓김치가 여러분의 식탁을 풍성하게 합니다.</p>
+    <div class="cta-btns">
+      <a href="http://www.suyeonkimchi.com/mall/index.php" target="_blank" class="btn btn-red">공식 쇼핑몰 바로가기</a>
+      <a href="https://brand.naver.com/jeongseongfood" target="_blank" class="btn btn-outline"
+        style="border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8);">
+        네이버 스토어
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER — 회사 정보 및 사이트 맵 구역
+       - 사업자 정보 및 하단 소셜 미디어(SNS) 바로가기 링크 배치
+       ============================================================ -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+          <p class="footer-logo">수연<span>갓</span>김치</p>
+          <p class="footer-about">
+            전라남도 여수시 돌산읍에서 20년 넘게 전통 방식으로 만들어온 갓김치 전문점입니다.
+            국내산 100% 재료만 사용하며, 산지에서 직송합니다.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>메뉴</h4>
+          <ul>
+            <li><a href="#story">브랜드 스토리</a></li>
+            <li><a href="#products">제품 라인업</a></li>
+            <li><a href="#process">제조 과정</a></li>
+            <li><a href="#reviews">고객 후기</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>구매하기</h4>
+          <ul>
+            <li><a href="http://www.suyeonkimchi.com/mall/index.php" target="_blank">공식 쇼핑몰</a></li>
+            <li><a href="https://brand.naver.com/jeongseongfood" target="_blank">네이버 스마트스토어</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>고객센터</h4>
+          <ul>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">자주 묻는 질문</a></li>
+            <li><a href="#">1:1 문의</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 돌산수연갓김치. All rights reserved. | 사업자등록번호: 000-00-00000</p>
+        <div class="footer-sns">
+          <a href="#" class="sns-btn" aria-label="인스타그램">📸</a>
+          <a href="#" class="sns-btn" aria-label="유튜브">▶</a>
+          <a href="#" class="sns-btn" aria-label="블로그">✏️</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       UTILITY COMPONENTS — 기타 편의 기능 컴포넌트
+       - 상단으로 스크롤을 올려주는 TOP 버튼 및 기능 스크립트 파일 연결
+       ============================================================ -->
+  <button id="scroll-top" aria-label="맨 위로 이동">▲</button>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
